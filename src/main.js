@@ -8,14 +8,36 @@ import dateFilter from '@/filters/date.filter.js'
 import messagePlugin from '@/utils/message.plugin.js'
 import 'materialize-css/dist/js/materialize.min'
 
+import firebase from 'firebase/app' // импорт firebase
+import 'firebase/auth' // модуль авторизации
+import 'firebase/database' // модуль БД
+
 Vue.config.productionTip = false
 
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)
 Vue.filter('date', dateFilter)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+const firebaseConfig = {
+  apiKey: "AIzaSyDdMR8e9lSeJXD79BIMYXyttCxB3VPOzWo",
+  authDomain: "vue-6cbf3.firebaseapp.com",
+  databaseURL: "https://vue-6cbf3.firebaseio.com",
+  projectId: "vue-6cbf3",
+  storageBucket: "vue-6cbf3.appspot.com",
+  messagingSenderId: "419890320987",
+  appId: "1:419890320987:web:bca520679a4a4c8a56517e"
+};
+
+firebase.initializeApp(firebaseConfig); // инициализация firebase
+
+let app;
+
+firebase.auth().onAuthStateChanged(() => {
+  if (!app) {
+    app = new Vue({
+      router,
+      store,
+      render: h => h(App)
+    }).$mount('#app')
+  }
+});
