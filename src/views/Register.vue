@@ -73,7 +73,7 @@
         </div>
 
         <p class="center">
-        Уже есть аккаунт?
+          Уже есть аккаунт?
         <router-link to="/login">Войти!</router-link>
         </p>
       </div>

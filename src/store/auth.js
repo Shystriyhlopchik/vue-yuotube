@@ -14,7 +14,7 @@ export default {
       try {
         await firebase.auth().createUserWithEmailAndPassword(email, password);
         const uid = await dispatch('getUid');
-        await firebase.database().ref(`/userd/${uid}/info`).set({
+        await firebase.database().ref(`/users/${uid}/info`).set({ // создаем нового пользователя в БД
           bill: 10000,
           name,
         });
@@ -27,8 +27,9 @@ export default {
       const user = firebase.auth().currentUser;
       return user ? user.uid : null;
     },
-    async logout() { // выход из ситемы
+    async logout({commit}) { // выход из ситемы
       await firebase.auth().signOut()
+      commit('clearInfo')
     }
-  }
+  } 
 }

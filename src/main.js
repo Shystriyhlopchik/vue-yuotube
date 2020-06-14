@@ -2,11 +2,13 @@ import Vue from 'vue'
 import Vuelidate from 'vuelidate'
 import App from './App.vue'
 import './registerServiceWorker'
-import router from './router'
+import router from './router' // подключение роутов
 import store from './store'
 import dateFilter from '@/filters/date.filter.js'
+import currencyFilter from '@/filters/currency.filter.js'
+import Loader from './components/app/Loader'
 import messagePlugin from '@/utils/message.plugin.js'
-import 'materialize-css/dist/js/materialize.min'
+import 'materialize-css/dist/js/materialize.min' // подключение materialize
 
 import firebase from 'firebase/app' // импорт firebase
 import 'firebase/auth' // модуль авторизации
@@ -17,6 +19,8 @@ Vue.config.productionTip = false
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)
 Vue.filter('date', dateFilter)
+Vue.filter('currency', currencyFilter)
+Vue.component('Loader', Loader)
 
 const firebaseConfig = {
   apiKey: "AIzaSyDdMR8e9lSeJXD79BIMYXyttCxB3VPOzWo",

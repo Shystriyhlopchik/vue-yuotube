@@ -1,10 +1,10 @@
 <template>
   <ul class="sidenav app-sidenav" :class="{open: value}">
     <router-link
-      v-for="link in links"
+      v-for="link in links" 
       :key="link.url"
       tag="li"
-      active-class="active"
+      active-class="active" 
       :to="link.url"
       :exact="link.exact"
     >

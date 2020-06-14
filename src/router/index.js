@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 Vue.use(Router)
-
+  // роуты 
   const routes = [
   {
     path: '/register',
