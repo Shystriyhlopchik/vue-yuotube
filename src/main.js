@@ -4,6 +4,7 @@ import App from './App.vue'
 import './registerServiceWorker'
 import router from './router' // подключение роутов
 import store from './store'
+import VueMeta from 'vue-meta'
 import dateFilter from '@/filters/date.filter.js'
 import currencyFilter from '@/filters/currency.filter.js'
 import localizeFilter from '@/filters/localize.filter.js'
@@ -11,6 +12,7 @@ import tooltipDirective from '@/directives/tooltip.directive.js'
 import Paginate from 'vuejs-paginate'
 import Loader from './components/app/Loader'
 import messagePlugin from '@/utils/message.plugin.js'
+import titlePlugin from '@/utils/title.plugin.js'
 import 'materialize-css/dist/js/materialize.min' // подключение materialize
 
 import firebase from 'firebase/app' // импорт firebase
@@ -21,6 +23,8 @@ Vue.config.productionTip = false
 
 Vue.use(messagePlugin)
 Vue.use(Vuelidate)
+Vue.use(VueMeta)
+Vue.use(titlePlugin)
 Vue.filter('date', dateFilter)
 Vue.filter('currency', currencyFilter)
 Vue.filter('localize', localizeFilter)
