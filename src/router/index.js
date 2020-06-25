@@ -54,8 +54,8 @@ Vue.use(Router)
     component: () => import('@/views/History.vue')
   },
   {
-    path: '/detile-record',
-    name: 'detile-record',
+    path: '/detile/:id',
+    name: 'detile',
     meta: {layout: 'main', auth: true},
     component: () => import('@/views/DetaileRecord.vue')
   }
