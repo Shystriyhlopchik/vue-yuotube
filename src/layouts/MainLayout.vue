@@ -5,7 +5,7 @@
 
       <Navbar @click="isOpen = !isOpen" /><!--Прослушиваем событие click и меняем на противоположное состояние-->
 
-      <Sidebar v-model="isOpen"/> <!--связываем с isOpen-->
+      <Sidebar v-model="isOpen" :key="locale"/> <!--связываем с isOpen-->
       
       <main class="app-content" :class="{full: !isOpen}"> <!--"full" активируется когда isOpen == false-->
         <div class="app-page">
@@ -45,6 +45,9 @@
     computed: {
       error() {
         return this.$store.getters.error
+      },
+      locale() {
+        return this.$store.getters.info.locale
       }
     },
     watch: {
